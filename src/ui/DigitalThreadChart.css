@@ -1,0 +1,172 @@
+.digital-thread-chart {
+    width: 100%;
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.digital-thread-chart .chart-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 20px 0;
+}
+
+.digital-thread-chart .chart-legend {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.digital-thread-chart .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.digital-thread-chart .legend-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.digital-thread-chart .legend-label {
+    font-size: 14px;
+    color: #666;
+}
+
+.digital-thread-chart .chart-container {
+    width: 100%;
+    height: calc(100% - 100px);
+    min-height: 300px;
+}
+
+/* SVG styles */
+.digital-thread-chart svg {
+    width: 100%;
+    height: 100%;
+}
+
+.digital-thread-chart .x-axis text,
+.digital-thread-chart .y-axis text {
+    fill: #666;
+    font-size: 12px;
+}
+
+.digital-thread-chart .x-axis path,
+.digital-thread-chart .y-axis path,
+.digital-thread-chart .x-axis line,
+.digital-thread-chart .y-axis line {
+    stroke: #ddd;
+}
+
+.digital-thread-chart .grid line {
+    stroke: #eee;
+}
+
+.digital-thread-chart .grid path {
+    stroke-width: 0;
+}
+
+/* Bar styles */
+.digital-thread-chart .capacity-bar {
+    transition: opacity 0.3s ease;
+}
+
+.digital-thread-chart .data-bar {
+    transition: all 0.3s ease;
+}
+
+.digital-thread-chart .data-bar:hover {
+    opacity: 0.8;
+}
+
+.digital-thread-chart .value-label {
+    font-weight: 600;
+    pointer-events: none;
+}
+
+/* State styles */
+.digital-thread-chart .loading-state,
+.digital-thread-chart .error-state,
+.digital-thread-chart .no-data-state {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    font-size: 16px;
+    color: #666;
+}
+
+.digital-thread-chart .error-state {
+    color: #d32f2f;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .digital-thread-chart {
+        padding: 15px;
+    }
+
+    .digital-thread-chart .chart-title {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .digital-thread-chart .chart-legend {
+        gap: 15px;
+        font-size: 12px;
+    }
+
+    .digital-thread-chart .legend-color {
+        width: 16px;
+        height: 16px;
+    }
+
+    .digital-thread-chart .x-axis text {
+        font-size: 10px;
+        transform: rotate(-45deg);
+        text-anchor: end;
+    }
+}
+
+/* Tooltip styles if needed in future */
+.digital-thread-chart .tooltip {
+    position: absolute;
+    padding: 8px 12px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 4px;
+    font-size: 12px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.digital-thread-chart .tooltip.show {
+    opacity: 1;
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.digital-thread-chart {
+    animation: fadeIn 0.3s ease-out;
+}

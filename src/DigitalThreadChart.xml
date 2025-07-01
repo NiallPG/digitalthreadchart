@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget id="com.mendix.widget.custom.digitalthreadchart.DigitalThreadChart" pluginWidget="true" needsEntityContext="false" offlineCapable="true"
+        supportedPlatform="Web"
+        xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
+    <name>Digital Thread Chart</name>
+    <description>Visualizes digital thread completion across industries with collateral tracking</description>
+    <icon/>
+    <properties>
+        <propertyGroup caption="Data Source">
+            <property key="industryData" type="datasource" isList="true" required="true">
+                <caption>Industries</caption>
+                <description>List of industries to display</description>
+            </property>
+            
+            <property key="industryCode" type="attribute" dataSource="industryData" required="true">
+                <caption>Industry Code</caption>
+                <description>Industry code (e.g., AD, AT, BAT)</description>
+                <attributeTypes>
+                    <attributeType name="String"/>
+                </attributeTypes>
+            </property>
+            
+            <property key="industryName" type="attribute" dataSource="industryData" required="false">
+                <caption>Industry Name</caption>
+                <description>Full industry name</description>
+                <attributeTypes>
+                    <attributeType name="String"/>
+                </attributeTypes>
+            </property>
+            
+            <property key="digitalThreads" type="datasource" dataSource="industryData" isList="true" required="true">
+                <caption>Digital Threads</caption>
+                <description>Digital threads associated with each industry</description>
+            </property>
+            
+            <property key="hasPresentation" type="attribute" dataSource="digitalThreads" required="true">
+                <caption>Has Presentation</caption>
+                <description>Thread Campaign Exec Overview availability</description>
+                <attributeTypes>
+                    <attributeType name="Boolean"/>
+                </attributeTypes>
+            </property>
+            
+            <property key="hasExploreIntro" type="attribute" dataSource="digitalThreads" required="true">
+                <caption>Has eXplore Intro</caption>
+                <description>eXplore Thread Introduction availability</description>
+                <attributeTypes>
+                    <attributeType name="Boolean"/>
+                </attributeTypes>
+            </property>
+            
+            <property key="hasProcessDiagram" type="attribute" dataSource="digitalThreads" required="true">
+                <caption>Has Process Diagram</caption>
+                <description>L1 Process Diagrams availability</description>
+                <attributeTypes>
+                    <attributeType name="Boolean"/>
+                </attributeTypes>
+            </property>
+        </propertyGroup>
+        
+        <propertyGroup caption="General">
+            <property key="chartTitle" type="string" required="false" defaultValue="Digital Thread Progress">
+                <caption>Chart Title</caption>
+                <description>Title displayed above the chart</description>
+            </property>
+            
+            <property key="showLegend" type="boolean" defaultValue="true">
+                <caption>Show Legend</caption>
+                <description>Display legend for collateral types</description>
+            </property>
+            
+            <property key="showCapacityBars" type="boolean" defaultValue="true">
+                <caption>Show Capacity Bars</caption>
+                <description>Display transparent background bars showing total thread capacity</description>
+            </property>
+        </propertyGroup>
+        
+        <propertyGroup caption="Appearance">
+            <property key="chartHeight" type="integer" defaultValue="500">
+                <caption>Chart Height (px)</caption>
+                <description>Height of the chart in pixels</description>
+            </property>
+            
+            <property key="barWidth" type="integer" defaultValue="40">
+                <caption>Bar Width (px)</caption>
+                <description>Width of each bar in pixels</description>
+            </property>
+            
+            <property key="colorPresentation" type="string" defaultValue="#00A9A5">
+                <caption>Presentation Color</caption>
+                <description>Color for Thread Campaign Exec Overview</description>
+            </property>
+            
+            <property key="colorExplore" type="string" defaultValue="#0B5563">
+                <caption>eXplore Color</caption>
+                <description>Color for eXplore Thread Introduction</description>
+            </property>
+            
+            <property key="colorProcess" type="string" defaultValue="#00CED1">
+                <caption>Process Diagram Color</caption>
+                <description>Color for L1 Process Diagrams</description>
+            </property>
+        </propertyGroup>
+        
+        <propertyGroup caption="Behavior">
+            <property key="onBarClick" type="action" required="false">
+                <caption>On Bar Click</caption>
+                <description>Action to execute when a bar is clicked</description>
+            </property>
+            
+            <property key="animationDuration" type="integer" defaultValue="500">
+                <caption>Animation Duration (ms)</caption>
+                <description>Duration of chart animations in milliseconds</description>
+            </property>
+        </propertyGroup>
+    </properties>
+</widget>
