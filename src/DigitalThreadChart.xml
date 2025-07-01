@@ -29,7 +29,7 @@
                 </attributeTypes>
             </property>
             
-            <property key="digitalThreads" type="datasource" dataSource="industryData" isList="true" required="true">
+            <property key="digitalThreads" type="datasource" isList="true" required="true">
                 <caption>Digital Threads</caption>
                 <description>Digital threads associated with each industry</description>
             </property>
